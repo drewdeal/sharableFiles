@@ -1,0 +1,40 @@
+[user]
+  name = Drew Deal
+  email = drew.deal@email.com
+        
+[color]
+  diff = auto
+  interactive = auto
+  status = auto
+  Author = yellow
+[color "branch"]
+  current = magenta
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = cyan
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[push]
+  default = matching
+[alias]
+  df = diff --ignore-all-space --ignore-space-at-eol --ignore-space-change --ignore-blank-lines -- . ':!/package-lock.json' -- ':!*yarn.lock'
+  lg = log --graph --decorate --pretty=oneline --abbrev-commit
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+  logsheet = "!f() { git log --format='%h%x09%s%x09A:%an%x09D:%ad' --no-merges --date=short $1 $2 | sed -e 's/\\([A-Z]*-[0-9]*\\)[^A-za-z]*/\\1	/'; }; f"
+  logg = log --format='%Cgreen%h | %Cblue%<(80,trunc)%s%Creset | A:%<(20,trunc)%an | D:%ad' --no-merges --date=short
+  loggs = log --stat --format='%n%Cgreen%h | %Cblue%<(80,trunc)%s%Creset | A:%<(20,trunc)%an | D:%ad ' --no-merges --date=short
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+  st = status
+  br = branch -v
+  ci = commit
+  co = checkout
+  sts = status -s -b
+
+[core]
+  excludesfile = /Users/drew/.gitignore_global
+  longpaths = true
+
